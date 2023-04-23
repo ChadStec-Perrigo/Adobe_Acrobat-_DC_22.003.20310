@@ -25,14 +25,20 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest  
     env:
-      reponame: "${{ github.repository }}"
+      reponame: "${{ github.repository }}" 
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: |
-        echo $reponame
+        echo $reponameGITHUB_REPOSITORY_OWNER
         echo "${{ github.repository }}"
-        echo "${{ github.owenr }}"
-   
+        echo "${{ github.ownnr }}"
+        echo "$env:GITHUB_REPOSITORY_OWNER"
+        echo "$env:GITHUB_REPOSITORY"
+    - name: Set outpu
+      id: vars
+      run: echo ::set-output name=repo_name::${GITHUB_REPOSITORY#*\/}
+    - name: Test set output
+      run: echo ${{ steps.vars.outputs.repo_name }}
