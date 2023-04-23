@@ -37,7 +37,7 @@ jobs:
     - name: Reveiw output
       run: |
         echo ${{ env.repo_name }}
-        echo ${{ github.event.inputs.vendor }} 
+        echo ${{ inputs.vendor }} 
         echo ${{ github.event.inputs.product }}
         echo ${{ github.event.inputs.version }} echo "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}"
         echo ${{ github.triggering_actor }}
@@ -46,6 +46,7 @@ jobs:
      # working-directory: ./
       run: |
         echo user_name=git config user.name >> $GITHUB_ENV
+        $user_name
         # git config user.email $EMAIL
         echo {{ inputs.name }}
         # echo {{ inputs.email }}
