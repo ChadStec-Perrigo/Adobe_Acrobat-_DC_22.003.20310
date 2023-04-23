@@ -46,7 +46,7 @@ jobs:
      # working-directory: ./
       run: |
         echo user_name=git config user.name >> $GITHUB_ENV
-        $user_name
+        echo ${{ env.user_name }}
         # git config user.email $EMAIL
         echo {{ inputs.name }}
         # echo {{ inputs.email }}
