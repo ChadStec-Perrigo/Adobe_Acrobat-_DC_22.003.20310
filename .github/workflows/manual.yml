@@ -44,7 +44,7 @@ jobs:
         echo "${{ github.repository_owner }}"
         echo ${GITHUB_REPOSITORY#*\/}
         echo "${GITHUB_REPOSITORY_OWNER}"
-        echo "${{ Vendor }}_${{ Product }}_${{ Version }}"
+        echo "${Vendor}_${Product}_${Version}"
 
     - name: Set ENV output
       run: echo repo_name1=${GITHUB_REPOSITORY#*\/} >> $GITHUB_ENV
