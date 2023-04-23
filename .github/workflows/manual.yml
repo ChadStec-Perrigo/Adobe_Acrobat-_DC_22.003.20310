@@ -38,9 +38,8 @@ jobs:
         echo "${{ GITHUB_REPOSITORY_OWNER }}"
         echo "${GITHUB_REPOSITORY_OWNER}"
         echo "$GITHUB_REPOSITORY_OWNER"
-        echo "GITHUB_REPOSITORY_OWNER"
         echo ${GITHUB_REPOSITORY#*\/}
-    - name: Set outpu
+    - name: Set output
       id: vars
       run: echo repo_name=${GITHUB_REPOSITORY#*\/} >> $GITHUB_OUTPUT
     - name: Test set output
