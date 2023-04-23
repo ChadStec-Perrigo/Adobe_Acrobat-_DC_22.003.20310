@@ -40,13 +40,12 @@ jobs:
     - name: Send greeting
       run: |
         echo $reponame 
+        echo $Vendor 
+        echo $Product 
+        echo $Version 
         echo "${{ github.repository }}"
         echo "${{ github.repository_owner }}"
         echo ${GITHUB_REPOSITORY#*\/}
         echo "${GITHUB_REPOSITORY_OWNER}"
-        echo "${Vendor}_${Product}_${Version}"
+        echo "${{ Vendor }}"
 
-    - name: Set ENV output
-      run: echo repo_name1=${GITHUB_REPOSITORY#*\/} >> $GITHUB_ENV
-    - name: Test set output
-      run: echo ${{ env.repo_name1 }}
