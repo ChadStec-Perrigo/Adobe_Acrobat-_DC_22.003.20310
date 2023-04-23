@@ -29,4 +29,9 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "Hello ${{ inputs.name }} ${{ github.repository }}"
+      run: |
+        reponame = "${{ github.repository }}"
+        echo $reponame
+        echo "${{ github.repository }}"
+        echo "${{ github.owenr }}"
+   
