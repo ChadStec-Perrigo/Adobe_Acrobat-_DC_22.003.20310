@@ -32,7 +32,7 @@ jobs:
     steps:
     - name: Set repo_name
       run: echo repo_name=${GITHUB_REPOSITORY#*\/} >> $GITHUB_ENV
-    - name: Reveiw out
+    - name: Reveiw output
       run: |
         echo ${{ env.repo_name }}
         echo ${{ github.event.inputs.vendor }} 
