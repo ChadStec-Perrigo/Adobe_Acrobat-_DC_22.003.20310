@@ -32,13 +32,13 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: |
-        echo $reponameGITHUB_REPOSITORY_OWNER
+        echo $reponame 
         echo "${{ github.repository }}"
-        echo "${{ github.ownnr }}"
+        echo "${{ github.repository_owner }}"
         echo "$env:GITHUB_REPOSITORY_OWNER"
         echo "$env:GITHUB_REPOSITORY"
     - name: Set outpu
       id: vars
-      run: echo ::set-output name=repo_name::${GITHUB_REPOSITORY#*\/}
+      run: echo {repo_name}={${GITHUB_REPOSITORY#*\/}} >> $GITHUB_OUTPUT
     - name: Test set output
       run: echo ${{ steps.vars.outputs.repo_name }}
