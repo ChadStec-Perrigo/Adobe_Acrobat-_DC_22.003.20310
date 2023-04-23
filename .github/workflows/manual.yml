@@ -40,10 +40,11 @@ jobs:
         echo ${{ github.event.inputs.vendor }} 
         echo ${{ github.event.inputs.product }}
         echo ${{ github.event.inputs.version }} echo "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}"
+        echo ${{ github.triggering_actor }}
     - name: Rename files
      # working-directory: ./
       run: |
-        git mv "./Deploy-Application.exe" "./${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
-        git mv "Deploy-Application.exe.config" "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"
-        git commit -m "renamed"
-        git push origin master
+        # git mv "./Deploy-Application.exe" "./${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
+        # git mv "Deploy-Application.exe.config" "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"
+        # git commit -m "Renamed" --author="Author Name <email@address.com>"
+        # git push origin master
