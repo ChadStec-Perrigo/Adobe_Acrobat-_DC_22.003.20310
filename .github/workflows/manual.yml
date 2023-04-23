@@ -8,17 +8,17 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      Vendor:
+      vendor:
         description: 'Vendor'
         default: ''
         required: true
         type: string
-      Product:
+      product:
         description: 'Product'
         default: ''
         required: true
         type: string
-      Version:
+      version:
         description: 'Version'
         default: ''
         required: true
@@ -40,9 +40,9 @@ jobs:
     - name: Send greeting
       run: |
         echo $reponame 
-        echo $Vendor 
-        echo $Product 
-        echo $Version 
+        echo "${{ github.event.inputs.vendor }} 
+        echo "${{ github.event.inputs.product }}
+        echo "${{ github.event.inputs.version }}
         echo "${{ github.repository }}"
         echo "${{ github.repository_owner }}"
         echo ${GITHUB_REPOSITORY#*\/}
