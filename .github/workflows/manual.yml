@@ -35,6 +35,7 @@ jobs:
     - name: Reveiw out
       run: |
         echo ${{ env.repo_name }}
-        echo "${{ github.event.inputs.vendor }} 
-        echo "${{ github.event.inputs.product }}
-        echo "${{ github.event.inputs.version }}
+        echo ${{ github.event.inputs.vendor }} 
+        echo ${{ github.event.inputs.product }}
+        echo ${{ github.event.inputs.version }}
+        echo "${{ github.event.inputs.version }}_"
