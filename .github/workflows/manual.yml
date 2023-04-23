@@ -35,10 +35,12 @@ jobs:
         echo $reponame 
         echo "${{ github.repository }}"
         echo "${{ github.repository_owner }}"
-        echo "$env:GITHUB_REPOSITORY_OWNER"
-        echo "$env:GITHUB_REPOSITORY"
+        echo "${{ env.GITHUB_REPOSITORY_OWNER }}"
+        echo "${{ env.GITHUB_REPOSITORY }}"
+        echo "${{ vars.GITHUB_REPOSITORY_OWNER }}"
+        echo "${{ vars.GITHUB_REPOSITORY }}"
     - name: Set outpu
       id: vars
-      run: echo {repo_name}={${GITHUB_REPOSITORY#*\/}} >> $GITHUB_OUTPUT
+      run: echo repo_name=${GITHUB_REPOSITORY#*\/} >> $GITHUB_OUTPUT
     - name: Test set output
       run: echo ${{ steps.vars.outputs.repo_name }}
