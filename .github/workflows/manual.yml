@@ -47,5 +47,5 @@ jobs:
         echo "${{ github.repository_owner }}"
         echo ${GITHUB_REPOSITORY#*\/}
         echo "${GITHUB_REPOSITORY_OWNER}"
-        echo "${{ Vendor }}"
+        #echo "${{ Vendor }}"
 
