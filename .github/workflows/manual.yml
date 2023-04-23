@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Setup
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -30,6 +30,8 @@ jobs:
     runs-on: ubuntu-latest  
 
     steps:
+    - uses: actions/checkout@v1
+    
     - name: Set repo_name
       run: echo repo_name=${GITHUB_REPOSITORY#*\/} >> $GITHUB_ENV
     - name: Reveiw output
@@ -39,3 +41,8 @@ jobs:
         echo ${{ github.event.inputs.product }}
         echo ${{ github.event.inputs.version }}
         echo "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}"
+    - name: Rename files
+      working-directory: ./
+      run: |
+         mv Deploy-Application.exe "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
+         mv Deploy-Application.exe.config "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"  
