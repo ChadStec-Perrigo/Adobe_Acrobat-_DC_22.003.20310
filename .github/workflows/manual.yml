@@ -46,5 +46,5 @@ jobs:
       run: |
         # git mv "./Deploy-Application.exe" "./${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
         # git mv "Deploy-Application.exe.config" "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"
-        # git commit -m "Renamed" --author="Author Name <email@address.com>"
+        # git commit -m "Renamed" --author="${{ github.triggering_actor }}"
         # git push origin master
