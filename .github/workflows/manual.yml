@@ -44,4 +44,4 @@ jobs:
      # working-directory: ./
       run: |
          mv "./Deploy-Application.exe" "./${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
-         mv "./Deploy-Application.exe.config" "$./{{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"  
+         mv "./Deploy-Application2.exe.config" "./${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"  
