@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest  
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     
     - name: Set repo_name
       run: echo repo_name=${GITHUB_REPOSITORY#*\/} >> $GITHUB_ENV
@@ -39,10 +39,9 @@ jobs:
         echo ${{ env.repo_name }}
         echo ${{ github.event.inputs.vendor }} 
         echo ${{ github.event.inputs.product }}
-        echo ${{ github.event.inputs.version }}
-        echo "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}"
+        echo ${{ github.event.inputs.version }} echo "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}"
     - name: Rename files
      # working-directory: ./
       run: |
-         mv "Deploy-Application.exe" "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
-         mv "Deploy-Application.exe.config" "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"  
+         mv "./Deploy-Application.exe" "./${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
+         mv "./Deploy-Application.exe.config" "$./{{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"  
