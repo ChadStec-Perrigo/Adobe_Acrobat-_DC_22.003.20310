@@ -26,21 +26,15 @@ on:
         
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  Setup:
     runs-on: ubuntu-latest  
-    env:
-      reponame: ${GITHUB_REPOSITORY#*\/}
-      # "${{ github.repository }}" 
-    
-    # Steps represent a sequence of tasks that will be executed as part of the job
+
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
+    - name: Set repo_name
+      run: echo repo_name=${GITHUB_REPOSITORY#*\/} >> $GITHUB_ENV
+    - name: Reveiw out
       run: |
-        echo $reponame 
+        echo ${{ env.repo_name }}
         echo "${{ github.event.inputs.vendor }} 
         echo "${{ github.event.inputs.product }}
         echo "${{ github.event.inputs.version }}
-
