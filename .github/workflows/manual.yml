@@ -45,7 +45,7 @@ jobs:
     - name: Rename files
      # working-directory: ./
       run: |
-        git config user.name $NAME
+        echo git config user.name
         # git config user.email $EMAIL
         echo {{ inputs.name }}
         # echo {{ inputs.email }}
