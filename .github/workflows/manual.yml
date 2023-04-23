@@ -43,8 +43,4 @@ jobs:
         echo "${{ github.event.inputs.vendor }} 
         echo "${{ github.event.inputs.product }}
         echo "${{ github.event.inputs.version }}
-        echo "${{ github.repository }}"
-        echo "${{ github.repository_owner }}"
-        echo ${GITHUB_REPOSITORY#*\/}
-        echo "${GITHUB_REPOSITORY_OWNER}"
 
