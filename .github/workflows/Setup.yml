@@ -35,29 +35,19 @@ jobs:
     - name: Set repo_name
       run: |
         echo repo_name=${GITHUB_REPOSITORY#*\/} >> $GITHUB_ENV
-        echo user_name=git config user.name >> $GITHUB_ENV
     - name: Reveiw output
       run: |
-        echo "The name of the pusher: ${{ github.event.actor.display_login }}"
-        echo "The email of the pusher: ${{ github.event.pusher.email }}"
-        echo $(git config user.name)
-        echo ${{ env.repo_name }}
-        echo ${{ env.user_name }}
         echo ${{ github.event.inputs.vendor }} 
         echo ${{ github.event.inputs.product }}
         echo ${{ github.event.inputs.version }} echo "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}"
-        echo ${{ github.triggering_actor }}
         
     - name: Rename files
-     # working-directory: ./
+
       run: |
-        # git config user.email $EMAIL
-        # echo {{ inputs.name }}
-        # echo {{ inputs.email }}
-        mv "./Deploy-Application.exe" "./${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
+        git mv "Deploy-Application.exe" "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
         git mv "Deploy-Application.exe.config" "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add .
-        git commit --m "Renamed" 
+        git commit -m "Renamed" 
         git push
