@@ -38,6 +38,8 @@ jobs:
         echo user_name=git config user.name >> $GITHUB_ENV
     - name: Reveiw output
       run: |
+        echo "The name of the pusher: ${{ github.event.pusher.name }}"
+        echo "The email of the pusher: ${{ github.event.pusher.email }}"
         echo $(git config user.name)
         echo ${{ env.repo_name }}
         echo ${{ env.user_name }}
