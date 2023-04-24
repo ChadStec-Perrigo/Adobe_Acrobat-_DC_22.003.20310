@@ -52,9 +52,12 @@ jobs:
      # working-directory: ./
       run: |
         # git config user.email $EMAIL
-        echo {{ inputs.name }}
+        # echo {{ inputs.name }}
         # echo {{ inputs.email }}
         mv "./Deploy-Application.exe" "./${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe"
-        #git mv "Deploy-Application.exe.config" "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"
-        #git commit -a -m "Renamed" --author="${{ github.triggering_actor }}"
-        #git push
+        git mv "Deploy-Application.exe.config" "${{ github.event.inputs.vendor }}_${{ github.event.inputs.product }}_${{ github.event.inputs.version }}.exe.config"
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit --m "Renamed" 
+        git push
