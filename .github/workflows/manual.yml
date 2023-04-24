@@ -38,6 +38,7 @@ jobs:
         echo user_name=git config user.name >> $GITHUB_ENV
     - name: Reveiw output
       run: |
+        echo $(git config user.name)
         echo ${{ env.repo_name }}
         echo ${{ env.user_name }}
         echo ${{ github.event.inputs.vendor }} 
